@@ -28,6 +28,7 @@ public class ActivityDB extends AppCompatActivity {
         et1 = (EditText) findViewById(R.id.et_codigo);
         et2 = (EditText) findViewById(R.id.et_nombre);
         listviewDB = (ListView) findViewById(R.id.listviewDB);
+        adminSQLite = new AdminSQLite(this);
     }
 
     public void limpiar(View view) {
@@ -37,7 +38,7 @@ public class ActivityDB extends AppCompatActivity {
 
 
     public void insertar(View view){
-        adminSQLite.insertarDatos(et1.getText().toString() , et2.getText().toString());
+        adminSQLite.insertarDatos(et1.getText().toString(),et2.getText().toString());
         adminSQLite.abrirBaseDeDatos();
         limpiar(view);
         Toast.makeText(this, "Datos Ingresados", Toast.LENGTH_SHORT).show(); }
@@ -62,7 +63,6 @@ public class ActivityDB extends AppCompatActivity {
     public void seleccionar(View view){
 
         ArrayList<Producto> productos = adminSQLite.seleccionDatos();
-
         ArrayList<String> productosString = new ArrayList<String>();
 
         for (int i=0; i < productos.size(); i++) {
@@ -73,5 +73,4 @@ public class ActivityDB extends AppCompatActivity {
 
         Toast.makeText(this, "Mostrando Datos", Toast.LENGTH_SHORT).show();
     }
-
 }

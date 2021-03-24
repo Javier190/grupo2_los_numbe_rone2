@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class AdminSQLite extends SQLiteOpenHelper {
 
     //Constructor
-    public AdminSQLite(Context context){super(context, "DB_grupoDos", null, 1);}
+    public AdminSQLite(Context context){super(context, "DB_grupDos", null, 1);}
 
 
     @Override
